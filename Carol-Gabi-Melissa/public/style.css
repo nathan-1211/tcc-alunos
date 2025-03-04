@@ -1,0 +1,811 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+* {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+:root {
+  --cor-branco: rgb(255, 255, 255);
+  --cor-preto: rgb(0, 0, 0);
+  --cor-preto-alpha: rgba(0, 0, 0, 0.5);
+  --cor-verde: rgb(15, 140, 13);
+  --cor-verde-light: rgb(214, 252, 208);
+  --cor-vermelho: rgb(255, 9, 9);
+  --cor-vermelho-light: rgb(243, 214, 214);
+  --cor-lilas: rgb(210, 120, 255);
+  --cor-lilas-light: rgb(237, 201, 255);
+  --cor-azul: rgb(86, 119, 241);
+  --cor-rosa: rgb(255, 164, 246);
+  --cor-cinza: rgb(116, 116, 116);
+  --cor-cinza-light: rgb(182, 182, 182);
+  --cor-amarelo: rgb(255, 242, 155);
+  --cor-laranja: rgb(255, 174, 117);
+}
+
+body {
+  background-color: var(--cor-azul);
+}
+
+.header-home {
+  display: flex;
+  flex-direction: column;
+  background: var(--cor-cinza);
+}
+
+.img-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+.main-menu {
+  width: 100%;
+}
+.main-menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-menu ul li {
+  position: relative;
+}
+
+.main-menu ul li a {
+  display: flex;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--cor-branco);
+  transition: all 300ms ease-in-out;
+  position: relative;
+  z-index: 99;
+}
+
+.main-menu ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: var(--cor-lilas);
+  transition: all 300ms ease-in-out;
+  z-index: -1;
+}
+
+.main-menu ul li a:hover::before {
+  width: 100%;
+}
+
+/* .main-menu ul li a:hover{
+    background: var(--cor-lilas);
+} */
+
+.main-menu ul li ul {
+  position: absolute;
+  top: 6rem;
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: all 200ms ease-in-out;
+  background: var(--cor-cinza);
+  z-index: 99;
+}
+
+.main-menu ul li:hover ul {
+  opacity: 1;
+  visibility: visible;
+  top: 3.4rem;
+}
+
+/*********************************************
+  configurações gerais
+**********************************************/
+.content-main {
+  padding: 2rem 0;
+}
+
+/*********************************************
+  Estilo da home
+**********************************************/
+.home h1 {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 2rem;
+}
+
+.all-books {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 80%;
+  margin: 0 auto;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.no-books h3 {
+  text-align: center;
+}
+
+.no-books h3 a {
+  color: var(--cor-branco);
+  transition: color 300ms ease-in-out;
+}
+
+.no-books h3 a:hover {
+  color: var(--cor-lilas);
+}
+
+/*********************************************
+  estilo do formulario de cadastro
+**********************************************/
+
+.content-form-cadastro {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.content-form-cadastro h1 {
+  text-align: center;
+  width: 100%;
+  padding: 3rem;
+}
+
+.content-form-cadastro form {
+  width: 60%;
+  padding: 1rem 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.content-form-cadastro form .input,
+.content-form-cadastro form .content-btn {
+  padding: 0 0 1rem 0;
+}
+
+.content-form-cadastro form div input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: 0.2rem solid var(--cor-lilas);
+  border-radius: 0.5rem;
+}
+.content-form-cadastro form .content-btn button {
+  width: 100%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: var(--cor-cinza);
+  border: none;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  transition: background 300ms ease-in-out;
+}
+.content-form-cadastro form .content-btn button:hover {
+  background-color: var(--cor-rosa);
+}
+
+.content-form-cadastro .input-book-desc .book_desc {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: 0.2rem solid var(--cor-lilas);
+  border-radius: 0.5rem;
+  height: 10rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.left,
+.right {
+  width: 50%;
+}
+
+/*************************************
+    Estilo do previw da imagem
+**************************************/
+.content-form-cadastro .input-book-image {
+  display: flex;
+  justify-content: center;
+}
+
+.content-form-cadastro .input-book-image .book_image {
+  display: none;
+}
+
+.content-form-cadastro .input-book-image .image-preview {
+  background: var(--cor-branco);
+  display: flex;
+  justify-content: center;
+  height: 450px;
+  color: var(--cor-cinza);
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: 0.2rem solid var(--cor-lilas);
+  border-radius: 0.7rem;
+  transition: color 300ms ease-in-out;
+}
+.content-form-cadastro .input-book-image img {
+  border-radius: 0.5rem;
+}
+
+.content-form-cadastro .input-book-image .image-preview:hover {
+  color: var(--cor-preto);
+}
+
+/*************************************
+  Mensagem de erro e sucesso
+***************************************/
+
+.content-msg {
+  padding-bottom: 1rem;
+}
+
+.msgErrorInput {
+  padding: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.msgError,
+.msgSuccess {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.msgError,
+.msgSuccess,
+.msgErrorInput {
+  text-align: center;
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+
+.msgError,
+.msgErrorInput {
+  color: var(--cor-vermelho);
+  background: var(--cor-vermelho-light);
+}
+
+.msgSuccess {
+  color: var(--cor-verde);
+  background: var(--cor-verde-light);
+}
+
+/*****************************
+  Estilo Login Form
+******************************/
+.form-login {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.form-alunos {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.form-alunos .form-group {
+  padding-bottom: 4rem;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.form-alunos h1,
+.form-login h1 {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.form-alunos .form-group .input,
+.form-login .form-group .input {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.form-alunos .form-group .input input,
+.form-login .form-group .input input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  outline: none;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 300ms ease-in-out;
+}
+
+.form-alunos .form-group .input input:-webkit-autofill,
+.form-login .form-group .input input:-webkit-autofill {
+  transition: background-color 5000000000s ease-in-out 0s;
+}
+
+.form-alunos .form-group .input label,
+.form-login .form-group .input label {
+  position: absolute;
+  top: 28%;
+  left: 5%;
+  font-weight: bold;
+  color: var(--cor-cinza);
+  transform: translateY(-50%);
+  transition: all 300ms ease-in-out;
+  pointer-events: none;
+}
+
+.form-alunos .form-group .input input:not(:placeholder-shown) + label,
+.form-alunos .form-group .input input:focus + label,
+.form-login .form-group .input input:not(:placeholder-shown) + label,
+.form-login .form-group .input input:focus + label {
+  top: -15%;
+  left: 0;
+  font-size: 0.8rem;
+  padding: 0 0.5rem;
+  color: var(--cor-preto);
+}
+
+.form-alunos .form-group .btn-group {
+  grid-area: btn;
+}
+
+.form-alunos .form-group .btn-group .btn,
+.form-login .form-group .btn-group .btn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-alunos .form-group .btn-group .btn button,
+.form-login .form-group .btn-group .btn button {
+  border: 0;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: var(--cor-cinza-light);
+  transition: all 300ms ease-in-out;
+}
+
+.form-alunos .form-group .btn-group .btn button:hover,
+.form-login .form-group .btn-group .btn button:hover {
+  background: var(--cor-verde);
+}
+
+/********************************
+    Footer
+******************************/
+
+.content-footer {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+  background: var(--cor-cinza);
+}
+
+/********************************
+  Estilo do form loan
+********************************/
+
+.main-loan {
+  padding: 4rem 0 0 0;
+}
+
+.main-loan h1 {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.form-loan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-loan form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.select-aluno,
+.select-book {
+  position: relative;
+}
+
+.get-aluno,
+.get-book {
+  position: relative;
+}
+
+.get-aluno input,
+.get-book input {
+  width: 100%;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-size: 1.1rem;
+  border-radius: 0.4rem;
+}
+
+.get-aluno::after,
+.get-book::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  border-top: 10px solid var(--cor-preto);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  transition: transform 300ms ease-in-out;
+}
+
+.list-alunos,
+.list-books {
+  background: var(--cor-branco);
+  border-radius: 0.4rem;
+  position: absolute;
+  color: var(--cor-preto);
+  width: 100%;
+  margin-top: 0.1rem;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+  z-index: 99;
+}
+
+.search-aluno input,
+.search-book input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: var(--cor-cinza-light);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 0.4rem;
+}
+
+.list-alunos ul,
+.list-books ul {
+  padding-top: 0.5rem;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.list-alunos ul li,
+.list-books ul li {
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  transition: background 300ms ease-in-out;
+}
+
+.list-alunos ul li:hover,
+.list-books ul li:hover {
+  background: var(--cor-lilas-light);
+}
+
+.list-alunos.active,
+.list-books.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.list-alunos.active .get-aluno::after,
+.list-books.active .get-book::after {
+  transform: rotate(-90deg);
+}
+
+/************************************************
+    estilo da lista de emprestimos, alunos e books
+*************************************************/
+.content_books,
+.content_alunos,
+.content_loan_books {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.content_books h1,
+.content_alunos h1,
+.content_loan_books h1 {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.content_alunos .row,
+.content_loan_books .row {
+  background: var(--cor-branco);
+  padding: 0.7rem;
+}
+
+.content_alunos .row .header-row,
+.content_loan_books .row .header-row {
+  font-weight: bold;
+}
+
+.content_alunos .row .border-row {
+  display: grid;
+  grid-template-columns: 30% 30% 10% 15% 15%;
+  border-bottom: 0.1rem solid var(--cor-preto);
+}
+
+.content_loan_books .row .border-row {
+  display: grid;
+  grid-template-columns: 25% 25% 17% 17% 8% 8%;
+  border-bottom: 0.1rem solid var(--cor-preto);
+}
+
+.content_alunos .row .border-row:nth-of-type(1),
+.content_loan_books .row .border-row:nth-of-type(1) {
+  border-top: 0.1rem solid var(--cor-preto);
+}
+
+.content_alunos .row .border-row .col,
+.content_loan_books .row .col {
+  border-left: 0.1rem solid var(--cor-preto);
+  padding: 0.3rem 0 0.3rem 0.5rem;
+}
+
+.content_alunos .row .border-row .col:nth-last-child(1),
+.content_loan_books .row .col:nth-last-child(1) {
+  border-right: 0.1rem solid var(--cor-preto);
+}
+
+.content_books .row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.content_books .row .border-row {
+  padding: 0.5rem;
+  background: var(--cor-branco);
+}
+
+/*************************************
+  Estilo da modal delete book
+***************************************/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: var(--cor-preto-alpha);
+}
+
+.modal form {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--cor-cinza-light);
+  width: 40%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 0.8rem;
+  box-shadow: 0px 0px 51px 25px rgba(0, 0, 0, 0.75);
+  padding: 2rem;
+}
+
+.modal-add-position form {
+  height: 300px;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+}
+
+.hide-modal {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+}
+
+.content-delete h3 {
+  font-size: 1.8rem;
+}
+
+.content-delete p {
+  font-size: 1.4rem;
+}
+
+.content-delete h3,
+.content-delete p {
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+.btns_delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.btns_delete button {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0.2rem 2rem;
+  cursor: pointer;
+  border: 0.1rem solid var(--cor-preto);
+  border-radius: 0.2rem;
+  transition: background 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.btns_delete button.btn_cancel:hover {
+  background: var(--cor-azul-light);
+}
+
+.btns_delete button.btn_delete:hover {
+  background: var(--cor-vermelho);
+}
+
+/************************************************
+  Estilo que mostra um unico livro
+************************************************/
+.content-book {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+.content-book h1 {
+  text-align: center;
+  padding: 3rem 0;
+  font-size: 3rem;
+}
+
+.content-book .book {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.content-book .book .book-img {
+  padding: 0 3rem;
+}
+
+.content-book .book .book-info {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+.content-book .book .book-info .autor,
+.content-book .book .book-info .categoria,
+.content-book .book .book-info .desc {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  padding-bottom: 1rem;
+  align-items: center;
+}
+
+.content-book .book .book-info .desc {
+  align-items: start;
+}
+
+.content-book .book .book-info .desc span {
+  display: block;
+  padding-bottom: 1rem;
+}
+
+.content-book .book .book-info .autor p,
+.content-book .book .book-info .categoria p,
+.content-book .book .book-info .desc p {
+  font-size: 1.2rem;
+  color: var(--cor-branco);
+}
+
+.content-book .book .book-info .desc p {
+  text-align: justify;
+  overflow: auto;
+}
+
+.btns-book {
+  display: grid;
+  grid-template-columns: 40% 30% 30%;
+  gap: 1rem;
+}
+
+.btns-book a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.3rem;
+  font-size: 1.4rem;
+  padding: 0.5rem 1rem;
+  color: var(--cor-preto);
+  font-weight: bold;
+  transition: background 300ms ease-in-out;
+}
+
+.btns-book a.voltar {
+  background: var(--cor-cinza);
+}
+
+.btns-book a.edit {
+  background: var(--cor-verde-light);
+}
+
+.btns-book a.delete {
+  background: var(--cor-vermelho-light);
+}
+
+.btns-book a.voltar:hover {
+  background: var(--cor-branco);
+}
+
+.btns-book a.edit:hover {
+  background: var(--cor-verde);
+}
+
+.btns-book a.delete:hover {
+  background: var(--cor-vermelho);
+}
+
+/********************************
+    responsivo
+******************************/
+
+@media screen and (max-width: 850px) {
+  .content-form-cadastro form {
+    display: block;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+  }
+  .content-form-cadastro .input-book-image .image-preview {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .content-form-cadastro form {
+    width: 100%;
+  }
+
+  .btns-book a {
+    font-size: 1.2rem;
+  }
+
+  .main-menu ul li a {
+    font-size: 1.2rem;
+  }
+}

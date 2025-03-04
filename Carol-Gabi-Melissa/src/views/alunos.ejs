@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include('components/head') %>
+  <body>
+    <main>
+      <%- include('components/header') %>
+      <div class="main-alunos">
+        <form action="/alunos" method="POST" class="form form-alunos">
+          <h1>Cadastro de Alunos na Biblioteca</h1>
+          <div class="content-msg">
+            <% if(msgError) { %>
+            <div class="msgError"><%= msgError %></div>
+            <% } %> <% if(msgSuccess) { %>
+            <div class="msgSuccess"><%= msgSuccess %></div>
+            <% } %>
+          </div>
+          <div class="form-group">
+            <div class="input aluno_name">
+              <input
+                type="text"
+                name="aluno_name"
+                class="aluno_name"
+                id="aluno_name"
+                placeholder=""
+              />
+              <label for="aluno_name">Nome do Aluno</label>
+            </div>
+            <div class="input aluno_email">
+              <input
+                type="text"
+                name="aluno_email"
+                class="aluno_email"
+                id="aluno_email"
+                placeholder=""
+              />
+              <label for="aluno_email">Email do Aluno</label>
+            </div>
+
+            <div class="input aluno_serie">
+              <input
+                type="text"
+                name="aluno_serie"
+                class="aluno_serie"
+                id="aluno_serie"
+                placeholder=""
+              />
+              <label for="aluno_serie">Serie do Aluno</label>
+            </div>
+
+            <div class="btn-group">
+              <div class="btn">
+                <button>Cadastrar Aluno</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="container_alunos">
+        <div class="content_alunos">
+          <h1>Lista de Alunos</h1>
+          <div class="row">
+            <div class="border-row header-row">
+              <div class="col">Alunos</div>
+              <div class="col">Email</div>
+              <div class="col">Serie</div>
+              <div class="col">Editar</div>
+              <div class="col">Deletar</div>
+            </div>
+          </div>
+          <div class="row">
+            <% if (alunos.length > 0) { alunos.forEach(aluno => { %>
+            <div class="border-row">
+              <div class="col"><%= aluno.aluno_name %></div>
+              <div class="col"><%= aluno.aluno_email %></div>
+              <div class="col"><%= aluno.aluno_serie %></div>
+              <div class="col">
+                <a href="/alunos/editAluno/<%= aluno.aluno_id %>">Editar</a>
+              </div>
+              <div class="col">
+                <a
+                  onclick="openModalDeleteAluno(`<%= aluno.aluno_id %>`, `<%= aluno.aluno_name %>`)"
+                  href="#"
+                  >Deletar</a
+                >
+              </div>
+            </div>
+            <% })} else { %>
+            <div>Nenhum registro encontrado!</div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      <div class="modal hide-modal" id="modal">
+        <form action="" method="post">
+          <div class="content-delete" id="content-delete">
+            <p>Você está prestes a deletar o Livro</p>
+            <h3></h3>
+            <h4>
+              Se você realmente quer deletar clique em Deletar se não clique em
+              Cancelar
+            </h4>
+            <div class="btns_delete">
+              <button class="btn_cancel" id="cancelar" type="reset">
+                Cancelar
+              </button>
+              <button class="btn_delete">Delete</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <%- include('components/footer') %>
+    </main>
+    <%- include('components/script') %>
+  </body>
+</html>

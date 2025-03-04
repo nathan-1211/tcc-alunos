@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include('components/head') %>
+    <title>Perfil do Usuário</title>
+  </head>
+  <body>
+    <%- include('components/header') %>
+    <main>
+      <section class="perfil container">
+        <div class="perfil-info">
+          <div class="icon-perfil-profile">
+            <i class="bx bxs-user"></i>
+          </div>
+          <div class="editable">
+            <form
+              id="form_profile"
+              action="/profile/<%= userLogged.user_id %>"
+              method="post"
+            >
+              <h2>username</h2>
+              <div class="grid_profile">
+                <span>Nome:</span>
+                <input
+                  type="text"
+                  disabled
+                  name="user_name"
+                  value="<%= userLogged.user_name %>"
+                  id="activeInput"
+                />
+              </div>
+              <div class="grid_profile">
+                <span>Email:</span>
+                <input
+                  type="text"
+                  disabled
+                  name="user_email"
+                  value="<%= userLogged.user_email %>"
+                  id="activeInput"
+                />
+              </div>
+              <div class="grid_profile">
+                <span>CEP:</span>
+                <input
+                  type="text"
+                  disabled
+                  name="user_cep"
+                  value="<%= userLogged.user_cep %>"
+                  id="activeInput"
+                />
+              </div>
+              <div class="grid_profile">
+                <span>Gênero:</span>
+                <input
+                  type="text"
+                  disabled
+                  name="user_genero"
+                  value="<%= userLogged.user_genero %>"
+                  id="activeInput"
+                />
+              </div>
+              <div class="grid_profile">
+                <span>Idade:</span>
+                <input
+                  type="text"
+                  disabled
+                  name="user_idade"
+                  value="<%= userLogged.user_idade %>"
+                  id="activeInput"
+                />
+              </div>
+              <div class="grid_profile">
+                <span>Escolaridade:</span>
+                <input
+                  type="text"
+                  disabled
+                  name="user_escolaridade"
+                  value="<%= userLogged.user_escolaridade %>"
+                  id="activeInput"
+                />
+              </div>
+              <div class="grid_profile">
+                <span>Curso de Interesse:</span>
+                <input
+                  type="text"
+                  disabled
+                  name="user_curso_interesse"
+                  value="<%= userLogged.user_curso_interesse %>"
+                  id="activeInput"
+                />
+              </div>
+              <div class="editar grid_profile" id="editable">
+                <div></div>
+                <div>
+                  <a id="edit" href="#">Editar</a>
+                  <a id="cancel" href="#">Cancelar</a>
+                  <button id="update" disabled type="submit">
+                    Atualizar Perfil
+                  </button>
+                </div>
+              </div>
+              <div class="content-msg">
+                <% if(msgSuccess) { %>
+                <div class="msgSuccess">
+                  <%= msgSuccess %> <a href="/profile">X</a>
+                </div>
+                <% } %> <% if(msgError) { %>
+                <div class="msgError">
+                  <%= msgError %> <a href="/profile">X</a>
+                </div>
+                <% } %>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="quest-icon">
+          <img src="/img/logo.png" />
+        </div>
+      </section>
+    </main>
+    <%- include('components/footer') %>
+  </body>
+</html>
+
+<!-- // const editableName = document.querySelector("#editableName");
+        // const inputName = document.querySelector("#inputName");
+
+        // inputName.value = editableName.innerText;
+
+        // console.log(inputName.value);
+
+        // const setValue = document.querySelectorAll("#setValue");
+
+        // setValue.value = activeEditable.innerText;
+
+        // activeEditable.forEach((edit) => {
+        //   edit.setAttribute("contenteditable", "true");
+        //   edit.classList.add("active");
+        // }); -->

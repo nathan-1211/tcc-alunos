@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include('components/head') %>
+  <body>
+    <main class="grid-admin">
+      <div class="content-admin">
+        <%- include('components/menuAdmin') %>
+
+        <div class="admin-profile"></div>
+        <div class="content-display">
+          <div class="content-msg">
+            <% if (msgSuccess) { %>
+            <div class="msgSuccess">
+              <%= msgSuccess %> <a href="/dashboard">X</a>
+            </div>
+            <% } %>
+          </div>
+          <h1>Dashboard</h1>
+          <div class="content-dashboard">
+            <p>
+              O projeto QuestVest visa criar uma plataforma acadêmica online
+              para auxiliar jovens do ensino médio, especialmente aqueles do
+              novo ensino médio técnico, a se prepararem para exames externos
+              como vestibulares e ENEM. A plataforma oferece conteúdos diversos,
+              como exercícios específicos por matéria e quizzes de conhecimentos
+              gerais, promovendo autonomia e flexibilidade no aprendizado.
+            </p>
+            <p>Justificativa:</p>
+            <p>
+              A iniciativa surge da constatação de dificuldades enfrentadas por
+              estudantes em função das mudanças no currículo do novo ensino
+              médio, que muitas vezes não prepara adequadamente para os
+              vestibulares. A pesquisa realizada com alunos e professores da
+              escola E.E Dr. Celso Gama revelou que 87,5% dos alunos não se
+              sentem preparados para os exames e que 100% dos professores
+              consideram o novo currículo prejudicial. Além disso, 88,9%
+              acreditam na eficácia de plataformas digitais acadêmicas para
+              suprir essa lacuna.
+            </p>
+            <p>Metodologia:</p>
+            <p>
+              A pesquisa incluiu levantamento descritivo e de campo,
+              identificando que muitos estudantes procuram por soluções digitais
+              devido à flexibilidade e objetividade oferecidas por tais
+              ferramentas.
+            </p>
+            <p>Funcionamento:</p>
+            <p>
+              A plataforma será intuitiva, com um menu dividido em seções como
+              "Matérias" e "Vestibulares", permitindo acesso rápido aos
+              conteúdos e exercícios. Os usuários poderão se cadastrar, fazer
+              login e navegar por temas organizados em áreas como Ciências da
+              Natureza, Ciências Humanas, Linguagens, Matemática e Vestibulares
+              específicos (ENEM.).
+            </p>
+            <p>
+              O projeto busca contribuir para o desempenho acadêmico dos alunos,
+              oferecendo recursos educacionais que os ajudem a alcançar seus
+              objetivos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('components/script') %>
+  </body>
+</html>
